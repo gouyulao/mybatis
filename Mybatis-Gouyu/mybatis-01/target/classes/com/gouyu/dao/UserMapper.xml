@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace=绑定一个对应的Dao/Mapper接口 -->
+<mapper namespace="com.gouyu.dao.UserMapper">
+
+    <!--查询语句
+    id:方法名
+    resultType:返回结果类型
+    -->
+    <select id="getUserList" resultType="com.gouyu.pojo.User">
+           select * from user
+    </select>
+
+    <!--
+     parameterType:接收参数类型
+    -->
+    <select id="getUserById" resultType="com.gouyu.pojo.User" parameterType="int">
+           select * from user where id=#{id}
+    </select>
+
+    <insert id="addUser" parameterType="com.gouyu.pojo.User">
+        insert into user(name,password) values(#{name},#{password});
+    </insert>
+
+    <update id="updUser" parameterType="com.gouyu.pojo.User">
+        update user set
+        name=#{name},
+        password=#{password}
+        where id=#{id}
+    </update>
+
+    <delete id="delUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+</mapper>

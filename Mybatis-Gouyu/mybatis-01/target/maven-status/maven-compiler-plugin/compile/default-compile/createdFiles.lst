@@ -1,0 +1,3 @@
+com\gouyu\dao\UserDao.class
+com\gouyu\pojo\User.class
+com\gouyu\utils\MybatisUtil.class
